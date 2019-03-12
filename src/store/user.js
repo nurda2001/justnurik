@@ -24,12 +24,10 @@ export default{
     	commit('SET_PROCESSING', true)
     	firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
         .then( user => {
-        	console.log(user)
         	commit('SET_PROCESSING', false)
         	commit('CLEAR_ERROR')
         })
         .catch(function(error) {
-        	console.log(error)
             commit('SET_PROCESSING', false)
             commit('SET_ERROR', error.message)
         
@@ -39,12 +37,10 @@ export default{
     		commit('SET_PROCESSING', true)
     	firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
         .then( user => {
-        	console.log(user)
         	commit('SET_PROCESSING', false)
         	commit('CLEAR_ERROR')
         })
         .catch(function(error) {
-        	console.log(error)
             commit('SET_PROCESSING', false)
             commit('SET_ERROR', error.message)
         

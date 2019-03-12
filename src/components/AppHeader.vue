@@ -9,6 +9,10 @@
 				<v-list-tile-content>
 						<v-list-tile-title v-text="item.title"></v-list-tile-title>
 					</v-list-tile-content>
+					<v-btn flat @click.prevent="signout" v-if="isUserAutheticated">
+				   <v-icon left>exit_to_app</v-icon>
+				   Выйти
+				</v-btn>
 			</v-list-tile>
 		</v-list>
 		</v-navigation-drawer>
