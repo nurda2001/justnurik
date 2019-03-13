@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<center><h1>Темы по Информатике12 класс</h1></center> 
+		<center><h1>Разделение Тем По Информатике</h1></center> 
 		<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
 			<div>
 		<v-carousel hide-delimiters>
@@ -21,7 +21,7 @@
         <div>{{topic.name}}</div>
       </template>
       <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
+        <v-card-text>{{topic.description}}</v-card-text>
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>
@@ -50,16 +50,20 @@
         ],
         topics:[
            {
-             name: 'Инормация'
+             name: '12 Классы',
+             description: 'Еще в разработке'
            },
            {
-           	name: 'Еще Информация'
+           	name: '11 Классы',
+            description: 'Уже Выпущено'
            },
            {
-           	name: 'Надо не забыть еще темы сюда скинуть'
+           	name: '10 Классы',
+            description: 'Не имеем понятия'
            },
            {
-           	name: 'Почему то не успеваю'
+           	name: '9 Классы',
+            description: 'Там всего лишь paint'
            }
 
 

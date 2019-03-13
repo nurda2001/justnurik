@@ -15,7 +15,7 @@
                   >
                  {{error}}
                </v-alert>
-                <form @submit.prevent="signin" v-model="valid" class="clearfix">
+                <form @submit.prevent="signup" v-model="valid" class="clearfix">
                   <v-text-field prepend-icon="person" name="login" label="Почта" type="email" required v-model="email" :rules="emailRules"></v-text-field>
                   <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
                   <v-text-field id="password2" prepend-icon="lock" name="password2" label="Пароль Подтверждение" type="password" required v-model="password2" :rules="passwordRules2"></v-text-field>
@@ -37,7 +37,7 @@
          email: null,
          password: '',
          password2: '',
-         valid: false,
+         valid: true  ,
          emailRules:[
           (v) => !!v || 'Емайл быстроо',
           (v) => /^\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/.test(v) || 'Неправильная Почта'

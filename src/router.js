@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Topics from '@/components/topics.vue'
 import SignUp from '@/components/SignUp.vue'
 import SignIn from '@/components/SignIn.vue'
+import Books from '@/components/Books.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify)
@@ -38,6 +39,11 @@ export default new Router({
       path:'/Войти',
       name: 'signin',
       component: SignIn
+    },
+    {
+      path:'/Тестовая',
+      name: 'books',
+      component: Books
     }
 
   ]

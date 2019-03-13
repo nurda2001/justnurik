@@ -55,6 +55,11 @@ import firebase from 'firebase'
                        	icon: 'visibility',
                        	title: 'Темы', 
                        	route: '/Темы'
+                       },
+                       {
+                       	icon: '',
+                       	title: 'Смотреть',
+                       	route: '/Тестовая'
                        }
 				] : [
                          {
