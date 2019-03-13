@@ -15,15 +15,13 @@
                   >
                  {{error}}
                </v-alert>
-                <v-form v-model="valid">
+                <form @submit.prevent="signin" v-model="valid" class="clearfix">
                   <v-text-field prepend-icon="person" name="login" label="Почта" type="email" required v-model="email" :rules="emailRules"></v-text-field>
                   <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
-                </v-form>
+                  <v-text-field id="password2" prepend-icon="lock" name="password2" label="Пароль Подтверждение" type="password" required v-model="password2" :rules="passwordRules2"></v-text-field>
+                  <v-btn style="float:right;" color="primary" type="submit" :disabled="processing || !valid">Зарегистрироваться</v-btn>
+                </form>
               </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary" @click.prevent="signup" :disabled="processing || !valid">Зарегистрироваться</v-btn>
-              </v-card-actions>
             </v-card>
           </v-flex>
         </v-layout>
@@ -37,9 +35,9 @@
     data(){
       return{
          email: null,
-         password: null,
+         password: '',
+         password2: '',
          valid: false,
-
          emailRules:[
           (v) => !!v || 'Емайл быстроо',
           (v) => /^\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/.test(v) || 'Неправильная Почта'
@@ -47,6 +45,9 @@
          passwordRules:[
            (v) => !!v || 'Пароль нужен',
            (v) => (v && v.length >= 6) || 'Пароль Слишком короткий - минимум 6 символов'
+         ],
+         passwordRules2:[
+           (v) => (this.password == v) || 'Введенные пароли не совпадают'
          ]
       }
     },
@@ -74,3 +75,11 @@
     }
   }
 </script>
+
+<style scoped>
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>

@@ -26,7 +26,7 @@
 				<v-btn v-for="(item, i) in menuItems" flat :key="`menuItem${i}`" :to="item.route" >
 					{{item.title}}
 				</v-btn>
-				<v-btn flat @click.prevent="signout" v-if="isUserAutheticated">
+				<v-btn flat @click="signout" v-if="isUserAutheticated">
 				   <v-icon left>exit_to_app</v-icon>
 				   Выйти
 				</v-btn>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 	export default{
 		data(){
 			return{
@@ -71,12 +72,18 @@
 		},
 		methods:{
 			signout(){
-				this.$confirm('Точно хотете выйти?').then(res => {
+				 this.$confirm('Точно хотете выйти?').then(res => {
 					if(res)
 						this.$store.dispatch('SIGNOUT')
-                   })
+    			})
 			}
-		}
+		}, 
+		 watch:{
+      isUserAutheticated(val){
+        if(val === false)
+          this.$router.push({ name: 'home' })
+      }
+    }
 	}
 </script>
 <style scoped>

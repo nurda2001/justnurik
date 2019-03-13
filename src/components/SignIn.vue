@@ -15,14 +15,14 @@
                   >
                  {{error}}
                </v-alert>
-                <v-form>
+                <form @submit.prevent="signin" class="clearfix">
                   <v-text-field prepend-icon="person" name="login" label="Почта" type="email" required v-model="email" :rules="emailRules"></v-text-field>
                   <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
-                </v-form>
+                  <v-btn style="float:right;" type="submit" color="secondary" :disabled="processing || !valid">Войти</v-btn>
+                </form>
               </v-card-text>
               <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="secondary" @click.prevent="signin" :disabled="processing || !valid">Войти</v-btn>
+                <v-spacer></v-spacer>                
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -73,3 +73,11 @@
     }
   }
 </script>
+
+<style scoped>
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>

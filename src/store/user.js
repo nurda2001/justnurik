@@ -13,7 +13,7 @@ export default{
     	state.user.uid = payload
     },
     UNSET_USER(state){
-    	user = {
+    	state.user = {
     		isAuthenticated: false,
      	    uid: null
     	}
@@ -47,7 +47,8 @@ export default{
       });
     },
     SIGNOUT(){
-       firebase.auth().signOut()
+       firebase.auth().signOut();
+       commit('UNSET_USER');
     },
     STATE_CHANGED({commit}, payload){
     	if(payload){
