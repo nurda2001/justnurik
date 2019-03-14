@@ -9,14 +9,14 @@
 				<v-list-tile-content>
 						<v-list-tile-title v-text="item.title"></v-list-tile-title>
 					</v-list-tile-content>
-					<v-btn flat @click.prevent="signout" v-if="isUserAutheticated">
+			</v-list-tile>
+			<v-btn flat @click.prevent="signout" v-if="isUserAutheticated">
 				   <v-icon left>exit_to_app</v-icon>
 				   Выйти
 				</v-btn>
-			</v-list-tile>
 		</v-list>
 		</v-navigation-drawer>
-		<v-toolbar  fixed="false" app color="White">
+		<v-toolbar app color="White">
 			<v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 			<router-link to="/" tag="span" style=" cursor: pointer">
 			<v-toolbar-title v-text="'ComputerScience'" style=" font-weight: 900;"></v-toolbar-title>
@@ -57,7 +57,7 @@ import firebase from 'firebase'
                        	route: '/Темы'
                        },
                        {
-                       	icon: '',
+                       	icon: 'visibility',
                        	title: 'Смотреть',
                        	route: '/Тестовая'
                        }

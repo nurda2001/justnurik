@@ -24,7 +24,7 @@
                 					</v-btn>
                 				</div>
                 			</v-flex>
-                			<v-flex xs8 md9>
+                			<v-flex xs10 md9>
                 				<v-card-title>
                 					<div>
                 						<div class="headline">
